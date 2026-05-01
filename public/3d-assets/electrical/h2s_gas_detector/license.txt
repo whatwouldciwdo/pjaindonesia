@@ -1,0 +1,11 @@
+Model Information:
+* title:	H2S Gas Detector
+* source:	https://sketchfab.com/3d-models/h2s-gas-detector-d5cdc80c35d5494cbc9fd10a27ad7a4b
+* author:	Mclarkie (https://sketchfab.com/Mclarkie)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "H2S Gas Detector" (https://sketchfab.com/3d-models/h2s-gas-detector-d5cdc80c35d5494cbc9fd10a27ad7a4b) by Mclarkie (https://sketchfab.com/Mclarkie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

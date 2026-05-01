@@ -1,0 +1,11 @@
+Model Information:
+* title:	BUTTERFLY VALVE
+* source:	https://sketchfab.com/3d-models/butterfly-valve-3b38eb30c30a447b9472e3e15aad1db6
+* author:	NightCandle (https://sketchfab.com/NightCandle_)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "BUTTERFLY VALVE" (https://sketchfab.com/3d-models/butterfly-valve-3b38eb30c30a447b9472e3e15aad1db6) by NightCandle (https://sketchfab.com/NightCandle_) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

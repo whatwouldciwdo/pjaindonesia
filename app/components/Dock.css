@@ -1,0 +1,106 @@
+.dock-outer {
+  margin: 0.5rem 0;
+  display: flex;
+  max-height: 100%;
+  align-items: center;
+}
+
+.dock-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  background-color: rgba(18, 15, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  pointer-events: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  outline: none;
+  color: #d4d4d4;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.dock-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="0" cy="0" r="40" stroke="%23ffffff" stroke-width="4" fill="none"/%3E%3Ccircle cx="40" cy="40" r="40" stroke="%23ffffff" stroke-width="4" fill="none"/%3E%3Ccircle cx="80" cy="0" r="40" stroke="%23ffffff" stroke-width="4" fill="none"/%3E%3Ccircle cx="0" cy="80" r="40" stroke="%23ffffff" stroke-width="4" fill="none"/%3E%3Ccircle cx="80" cy="80" r="40" stroke="%23ffffff" stroke-width="4" fill="none"/%3E%3C/svg%3E');
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.dock-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.dock-item:hover {
+  background-color: #DBB884;
+  color: white;
+  border-color: #DBB884;
+}
+
+.dock-item:hover::before {
+  opacity: 0.25;
+}
+
+.dock-item:hover::after {
+  opacity: 1;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.5s ease;
+}
+
+.dock-item:hover .dock-icon {
+  transform: scale(1.15);
+}
+
+.dock-label {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 1rem);
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(18, 15, 23, 0.95);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: #DBB884;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}

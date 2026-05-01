@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WayangSilhouette from "./components/WayangSilhouette";
 import Preloader from "./components/Preloader";
+import GlobalAnimation from "./components/GlobalAnimation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-white text-neutral-900 font-sans selection:bg-[#DBB884] selection:text-white relative">
         <Preloader />
+        <GlobalAnimation />
 
         <div className="fixed inset-0 pointer-events-none z-50 mix-blend-multiply overflow-hidden">
           <WayangSilhouette className="absolute -bottom-20 -right-32 w-[600px] h-auto text-[#DBB884] opacity-[0.07] md:w-[900px] md:-bottom-40 md:-right-48" />

@@ -2,10 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import PatternBorder from './components/PatternBorder';
 import ProjectsCarousel from './components/ProjectsCarousel';
+import Preloader from './components/Preloader';
+import ScrollyTelling from './components/ScrollyTelling';
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen bg-white text-neutral-900 font-sans selection:bg-[#DBB884] selection:text-white">
+    <>
+      <Preloader />
+      <ScrollyTelling />
+      
+      <div id="white-section" className="w-full min-h-screen bg-white text-neutral-900 font-sans selection:bg-[#DBB884] selection:text-white relative z-20">
 
       <section className="flex flex-col md:flex-row items-center md:items-start justify-between py-16 px-6 md:px-16 w-full max-w-[1400px] mx-auto gap-16 md:gap-8">
 
@@ -151,5 +157,6 @@ export default function Home() {
       </div>
 
     </div>
+    </>
   );
 }
