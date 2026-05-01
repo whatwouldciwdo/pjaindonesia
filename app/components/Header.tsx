@@ -117,7 +117,7 @@ export default function Header() {
         </div>
       </header>
 
-      <div className={`fixed right-6 top-1/2 -translate-y-1/2 z-50 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isScrolled ? 'translate-x-0 opacity-100' : 'translate-x-[150%] opacity-0'}`}>
+      <div className={`fixed z-50 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] bottom-6 left-1/2 md:bottom-auto md:left-auto md:right-6 md:top-1/2 ${isScrolled ? 'translate-y-0 -translate-x-1/2 opacity-100 md:translate-x-0 md:-translate-y-1/2' : 'translate-y-[150%] -translate-x-1/2 opacity-0 md:translate-x-[150%] md:-translate-y-1/2'}`}>
         <Dock 
           items={dockItems} 
           panelWidth={64} 

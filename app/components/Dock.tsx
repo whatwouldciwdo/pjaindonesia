@@ -9,22 +9,30 @@ interface DockItemProps {
   children: ReactNode;
   className?: string;
   onClick?: () => void;
-  mouseX: any;
+  mousePos: any;
   spring: any;
   distance: number;
   magnification: number;
   baseItemSize: number;
 }
 
-function DockItem({ children, className = '', onClick, mouseX, spring, distance, magnification, baseItemSize }: DockItemProps) {
+function DockItem({ children, className = '', onClick, mousePos, spring, distance, magnification, baseItemSize }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isHovered = useMotionValue(0);
 
-  const mouseDistance = useTransform(mouseX, (val: number) => {
+  const mouseDistance = useTransform(mousePos, (pos: any) => {
+    if (!pos || pos.x === Infinity) return 0;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return 0;
-    const itemCenterY = rect.top + rect.height / 2;
-    return val - itemCenterY;
+    
+    const isHorizontal = window.innerWidth < 768;
+    if (isHorizontal) {
+      const itemCenterX = rect.left + rect.width / 2;
+      return pos.x - itemCenterX;
+    } else {
+      const itemCenterY = rect.top + rect.height / 2;
+      return pos.y - itemCenterY;
+    }
   });
 
   const maxScale = magnification / baseItemSize;
@@ -78,7 +86,13 @@ function DockLabel({ children, className = '', ...rest }: { children: ReactNode,
           transition={{ duration: 0.2 }}
           className={`dock-label ${className}`}
           role="tooltip"
-          style={{ y: '-50%' }}
+          style={{ 
+            y: '-50%',
+            // On mobile, tooltips should appear above instead of left
+            top: window.innerWidth < 768 ? '-150%' : '50%',
+            right: window.innerWidth < 768 ? '50%' : 'calc(100% + 1rem)',
+            transform: window.innerWidth < 768 ? 'translateX(50%)' : 'none'
+          }}
         >
           {children}
         </motion.div>
@@ -120,7 +134,7 @@ export default function Dock({
   baseItemSize = 50,
   topContent
 }: DockProps) {
-  const mousePos = useMotionValue(Infinity);
+  const mousePos = useMotionValue({ x: Infinity, y: Infinity });
   const isHovered = useMotionValue(0);
 
   return (
@@ -128,21 +142,20 @@ export default function Dock({
       <motion.div
         onMouseMove={(e: any) => {
           isHovered.set(1);
-          mousePos.set(e.pageY);
+          mousePos.set({ x: e.pageX, y: e.pageY });
         }}
         onMouseLeave={() => {
           isHovered.set(0);
-          mousePos.set(Infinity);
+          mousePos.set({ x: Infinity, y: Infinity });
         }}
         className={`dock-panel pointer-events-auto ${className}`}
-        style={{ width: panelWidth }}
         role="toolbar"
         aria-label="Application dock"
       >
         {topContent && (
-          <div className="flex flex-col items-center gap-3 w-full mb-1">
+          <div className="dock-top-content">
             {topContent}
-            <div className="w-8 h-[2px] bg-white/10 rounded-full"></div>
+            <div className="dock-divider"></div>
           </div>
         )}
         {items.map((item, index) => (
@@ -150,7 +163,7 @@ export default function Dock({
             key={index}
             onClick={item.onClick}
             className={item?.className || ''}
-            mouseX={mousePos}
+            mousePos={mousePos}
             spring={spring}
             distance={distance}
             magnification={magnification}
