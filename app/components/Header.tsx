@@ -121,11 +121,11 @@ export default function Header() {
         <Dock 
           items={dockItems} 
           panelWidth={64} 
-          baseItemSize={48} 
-          magnification={64} 
+          baseItemSize={44} 
+          magnification={60} 
           topContent={
             <div 
-              className="group relative bg-[#D6B98C] w-12 h-12 rounded-xl flex items-center justify-center p-2 shadow-lg cursor-pointer transition-transform hover:scale-105" 
+              className="group relative bg-[#D6B98C] w-11 h-11 rounded-xl flex items-center justify-center p-2 shadow-lg cursor-pointer transition-transform hover:scale-105 flex-shrink-0" 
               onClick={() => {
                 if (pathname === '/') {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -136,7 +136,12 @@ export default function Header() {
             >
               <img src="/logo-pja.png" alt="PJA Logo" className="w-full h-full object-contain relative z-10" />
               
-              <div className="absolute top-1/2 right-[calc(100%+1rem)] w-fit whitespace-pre rounded-lg border border-white/15 bg-[#120F17]/95 px-3 py-1 text-xs font-bold text-[#DBB884] uppercase tracking-wider opacity-0 -translate-y-1/2 translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 shadow-lg pointer-events-none">
+              {/* Desktop: tooltip to the left */}
+              <div className="hidden md:block absolute top-1/2 right-[calc(100%+0.75rem)] w-fit whitespace-nowrap rounded-lg border border-white/15 bg-[#120F17]/95 px-3 py-1 text-xs font-bold text-[#DBB884] uppercase tracking-wider opacity-0 -translate-y-1/2 translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 shadow-lg pointer-events-none">
+                Home
+              </div>
+              {/* Mobile: tooltip above */}
+              <div className="md:hidden absolute bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-fit whitespace-nowrap rounded-lg border border-white/15 bg-[#120F17]/95 px-3 py-1 text-xs font-bold text-[#DBB884] uppercase tracking-wider opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 shadow-lg pointer-events-none">
                 Home
               </div>
             </div>
