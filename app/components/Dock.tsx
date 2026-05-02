@@ -21,9 +21,9 @@ function DockItem({ children, className = '', onClick, mousePos, spring, distanc
   const isHovered = useMotionValue(0);
 
   const mouseDistance = useTransform(mousePos, (pos: any) => {
-    if (!pos || pos.x === Infinity) return 0;
+    if (!pos || pos.x === Infinity) return distance;
     const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return 0;
+    if (!rect) return distance;
     
     const isHorizontal = window.innerWidth < 768;
     if (isHorizontal) {
