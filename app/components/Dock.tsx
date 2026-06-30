@@ -35,19 +35,16 @@ function DockItem({ children, className = '', onClick, mousePos, spring, distanc
     }
   });
 
-  const maxScale = magnification / baseItemSize;
-  const targetScale = useTransform(mouseDistance, [-distance, 0, distance], [1, maxScale, 1]);
+  const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
   
-  const scale = useSpring(targetScale, spring);
+  const size = useSpring(targetSize, spring);
 
   return (
     <motion.div
       ref={ref}
       style={{
-        width: baseItemSize,
-        height: baseItemSize,
-        scale: scale,
-        transformOrigin: 'center center'
+        width: size,
+        height: size,
       }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}

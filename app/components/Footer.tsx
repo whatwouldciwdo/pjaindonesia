@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer
-      className="w-full bg-[#202020] text-gray-200 py-16 md:py-20 px-6 md:px-16 overflow-hidden relative"
+      className="w-full bg-[#202020] text-gray-200 py-16 md:py-20 px-6 md:px-16 overflow-hidden relative z-20"
       style={{
         backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Ccircle cx=\"0\" cy=\"0\" r=\"40\" stroke=\"%23333333\" stroke-width=\"1\" fill=\"none\"%2F%3E%3Ccircle cx=\"40\" cy=\"40\" r=\"40\" stroke=\"%23333333\" stroke-width=\"1\" fill=\"none\"%2F%3E%3Ccircle cx=\"80\" cy=\"0\" r=\"40\" stroke=\"%23333333\" stroke-width=\"1\" fill=\"none\"%2F%3E%3Ccircle cx=\"0\" cy=\"80\" r=\"40\" stroke=\"%23333333\" stroke-width=\"1\" fill=\"none\"%2F%3E%3Ccircle cx=\"80\" cy=\"80\" r=\"40\" stroke=\"%23333333\" stroke-width=\"1\" fill=\"none\"%2F%3E%3C/svg%3E')",
         backgroundSize: "80px 80px",
